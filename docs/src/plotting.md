@@ -1,13 +1,18 @@
 # Plotting
 
-Most objects defined in the project can be plotted directly without major efforts.
-Other plots are provided below that can be useful for spatial data analysis.
+Most objects defined in GeoStats.jl can be plotted directly using the
+`plot` command from [Plots.jl](https://github.com/JuliaPlots/Plots.jl).
+For visualization of 3D objects, however, we recommend the experimental
+[MeshViz.jl](https://github.com/JuliaGeometry/MeshViz.jl) package.
+Additional plots are listed below that can be useful for geostatistical
+analysis.
 
-## hscatter
+## Built-in
 
-A `hscatter` plot between two variables `var1` and `var2` (possibly with `var2` =
-`var1`) is a simple scatter plot in which the dots represent all ordered pairs of
-values of `var1` and `var2` at a given lag `h`.
+A `hscatter` plot between two variables `var1` and `var2` (possibly
+with `var2` = `var1`) is a simple scatter plot in which the dots
+represent all ordered pairs of values of `var1` and `var2` at a
+given lag `h`.
 
 ```@example plots
 using GeoStats
@@ -26,43 +31,14 @@ p4 = hscatter(𝒮, :Z, lag=60)
 plot(p1, p2, p3, p4)
 ```
 
-## distplot1d
+## PairPlots.jl
 
-A `distplot1d` of a variable `var` displays the adjusted spatial histogram
-(see [`EmpiricalHistogram`](@ref)), and optionally a list of quantiles.
+The [PairPlots.jl](https://github.com/sefffal/PairPlots.jl) package
+provides the `corner` plot that can be used with any table, including
+tables of attributes obtained with the [`values`](@ref) function.
 
-```@example plots
-z = randn(500)
+## StatsPlots.jl
 
-𝒮 = georef((Z=z,))
-
-distplot1d(𝒮, :Z, quantiles=[0.25,0.50,0.75])
-```
-
-## distplot2d
-
-A `distplot2d` of two variables `var1` and `var2` displays the 2D histogram,
-and optionally a list of quantiles.
-
-```@example plots
-z1 = randn(500)
-z2 = z1 + randn(500)
-
-𝒮 = georef((Z1=z1, Z2=z2))
-
-distplot2d(𝒮, :Z1, :Z2, quantiles=[0.25,0.50,0.75])
-```
-
-## cornerplot
-
-A `cornerplot` displays a grid of plots with `distplot1d` plots in the diagonal
-and `distplot2d` in the off-diagonal entries of the grid.
-
-```@example plots
-z1 = randn(500)
-z2 = z1 + randn(500)
-
-𝒮 = georef((Z1=z1, Z2=z2))
-
-cornerplot(𝒮, (:Z1,:Z2), quantiles=[0.25,0.50,0.75])
-```
+The [StatsPlots.jl](https://github.com/JuliaPlots/StatsPlots.jl) package
+provides various statistical plots such as `boxplot`, `dotplot`, `violin`
+and other plots commonly used in statistical workflows.

@@ -22,18 +22,19 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://gitter.im/JuliaEarth/GeoStats.jl">
-    <img src="https://img.shields.io/badge/chat-on%20gitter-bc0067?style=flat-square">
-  </a>
   <a href="https://julialang.zulipchat.com/#narrow/stream/276201-geostats.2Ejl">
     <img src="https://img.shields.io/badge/chat-on%20zulip-9cf?style=flat-square">
+  </a>
+  <a href="https://gitter.im/JuliaEarth/GeoStats.jl">
+    <img src="https://img.shields.io/badge/chat-on%20gitter-bc0067?style=flat-square">
   </a>
 </p>
 
 # Project goals
 
-- Design a comprehensive framework for geostatistics (or spatial statistics) in a modern programming language.
-- Address the lack of a platform for scientific comparison of different geostatistical algorithms in the literature.
+- Design a comprehensive framework for geostatistics in a modern programming language.
+- Address the lack of a platform for scientific comparison of different geostatistical
+  algorithms in the literature.
 - Exploit modern hardware aggressively, including GPUs and computer clusters.
 - Educate people outside of the field about the existence of geostatistics.
 
@@ -57,8 +58,8 @@ source and free of charge. If you would like to help support the project, please
 star the repository [![STARS][stars-img]][stars-url] and share it with your colleagues.
 If you have questions, don't hesitate to ask in our community channels:
 
-[![GITTER][gitter-img]][gitter-url]
 [![ZULIP][zulip-img]][zulip-url]
+[![GITTER][gitter-img]][gitter-url]
 
 ## Citing
 
@@ -68,7 +69,7 @@ If you find GeoStats.jl useful in your work, please consider citing it:
 [![DOI][zenodo-img]][zenodo-url]
 
 ```bibtex
-@ARTICLE{GeoStats.jl-2018,
+@ARTICLE{Hoffimann2018,
   title={GeoStats.jl – High-performance geostatistics in Julia},
   author={Hoffimann, Júlio},
   journal={Journal of Open Source Software},
@@ -109,43 +110,6 @@ with an accompanying series of videos:
   </a>
 </p>
 
-Below is a quick preview of the high-level API:
-
-```julia
-using GeoStats
-using Plots
-using CSV
-
-# data.csv:
-#    x,    y,       station,        precip
-# 25.0, 25.0,     palo alto,           1.0
-# 50.0, 75.0,  redwood city,           0.0
-# 75.0, 50.0, mountain view,           1.0
-
-# read spatial data (e.g. geotable)
-𝒯 = georef(CSV.File("data.csv"), (:x,:y))
-
-# define spatial domain (e.g. Cartesian grid)
-𝒟 = CartesianGrid(100, 100)
-
-# define estimation problem for precipitation
-𝒫 = EstimationProblem(𝒯, 𝒟, :precip)
-
-# choose a solver from the list of solvers
-𝒮 = Kriging(
-  :precip => (variogram=GaussianVariogram(range=35.),)
-)
-
-# solve the problem
-sol = solve(𝒫, 𝒮)
-
-# plot the solution
-contourf(sol)
-```
-<p align="center">
-  <img src="docs/src/images/EstimationSolution.png">
-</p>
-
 ## Used at
 
 <p align="center">
@@ -170,11 +134,11 @@ contourf(sol)
 [zenodo-img]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.3875233-blue?style=flat-square
 [zenodo-url]: https://zenodo.org/badge/latestdoi/33827844
 
-[gitter-img]: https://img.shields.io/badge/chat-on%20gitter-bc0067?style=flat-square
-[gitter-url]: https://gitter.im/JuliaEarth/GeoStats.jl
-
 [zulip-img]: https://img.shields.io/badge/chat-on%20zulip-9cf?style=flat-square
 [zulip-url]: https://julialang.zulipchat.com/#narrow/stream/276201-geostats.2Ejl
+
+[gitter-img]: https://img.shields.io/badge/chat-on%20gitter-bc0067?style=flat-square
+[gitter-url]: https://gitter.im/JuliaEarth/GeoStats.jl
 
 [stars-img]: https://img.shields.io/github/stars/JuliaEarth/GeoStats.jl?style=social
 [stars-url]: https://github.com/JuliaEarth/GeoStats.jl
@@ -227,6 +191,10 @@ This project would not be possible without the contributions of:
     <td align="center"><a href="https://github.com/felixcremer"><img src="https://avatars.githubusercontent.com/u/17124431?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felix Cremer</b></sub></a><br /><a href="https://github.com/JuliaEarth/GeoStats.jl/commits?author=felixcremer" title="Documentation">📖</a></td>
     <td align="center"><a href="http://storopoli.io"><img src="https://avatars.githubusercontent.com/u/43353831?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jose Storopoli</b></sub></a><br /><a href="#infra-storopoli" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://github.com/fnaghetini"><img src="https://avatars.githubusercontent.com/u/63740520?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Franco Naghetini</b></sub></a><br /><a href="https://github.com/JuliaEarth/GeoStats.jl/commits?author=fnaghetini" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.nicholasshea.com/"><img src="https://avatars.githubusercontent.com/u/25097799?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nicholas Shea</b></sub></a><br /><a href="https://github.com/JuliaEarth/GeoStats.jl/commits?author=nshea3" title="Code">💻</a></td>
+    <td align="center"><a href="http://math.mit.edu/~stevenj"><img src="https://avatars.githubusercontent.com/u/2913679?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven G. Johnson</b></sub></a><br /><a href="#infra-stevengj" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/mrr00b00t"><img src="https://avatars.githubusercontent.com/u/32930332?v=4?s=100" width="100px;" alt=""/><br /><sub><b>José A. S. Silva</b></sub></a><br /><a href="https://github.com/JuliaEarth/GeoStats.jl/commits?author=mrr00b00t" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/marlonsmathias"><img src="https://avatars.githubusercontent.com/u/81258808?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marlon Sproesser Mathias</b></sub></a><br /><a href="https://github.com/JuliaEarth/GeoStats.jl/commits?author=marlonsmathias" title="Code">💻</a></td>
   </tr>
 </table>
 

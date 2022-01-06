@@ -7,11 +7,13 @@ module GeoStats
 using Reexport
 
 # reexport related stack
-@reexport using Meshes
 @reexport using Distances: Euclidean, Chebyshev, Haversine 
 @reexport using LossFunctions: L2DistLoss, L1DistLoss
 @reexport using LossFunctions: HingeLoss, MisclassLoss
 @reexport using DensityRatioEstimation
+@reexport using ScientificTypes
+@reexport using TableTransforms
+@reexport using Meshes
 
 # reexport project modules
 @reexport using GeoStatsBase

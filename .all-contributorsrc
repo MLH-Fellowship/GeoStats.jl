@@ -284,6 +284,42 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nshea3",
+      "name": "Nicholas Shea",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25097799?v=4",
+      "profile": "https://www.nicholasshea.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stevengj",
+      "name": "Steven G. Johnson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2913679?v=4",
+      "profile": "http://math.mit.edu/~stevenj",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "mrr00b00t",
+      "name": "José A. S. Silva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32930332?v=4",
+      "profile": "https://github.com/mrr00b00t",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "marlonsmathias",
+      "name": "Marlon Sproesser Mathias",
+      "avatar_url": "https://avatars.githubusercontent.com/u/81258808?v=4",
+      "profile": "https://github.com/marlonsmathias",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

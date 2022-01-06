@@ -20,17 +20,18 @@ makedocs(
     prettyurls = istravis,
     mathengine = KaTeX(Dict(
       :macros => Dict(
-        "\\x" => "\\boldsymbol{x}",
-        "\\z" => "\\boldsymbol{z}",
-        "\\l" => "\\boldsymbol{\\lambda}",
-        "\\c" => "\\boldsymbol{c}",
-        "\\C" => "\\boldsymbol{C}",
-        "\\g" => "\\boldsymbol{g}",
-        "\\G" => "\\boldsymbol{G}",
-        "\\f" => "\\boldsymbol{f}",
-        "\\F" => "\\boldsymbol{F}",
-        "\\R" => "\\mathbb{R}",
-        "\\1" => "\\mathbb{1}"
+        "\\cov" => "\\text{cov}",
+        "\\x"   => "\\boldsymbol{x}",
+        "\\z"   => "\\boldsymbol{z}",
+        "\\l"   => "\\boldsymbol{\\lambda}",
+        "\\c"   => "\\boldsymbol{c}",
+        "\\C"   => "\\boldsymbol{C}",
+        "\\g"   => "\\boldsymbol{g}",
+        "\\G"   => "\\boldsymbol{G}",
+        "\\f"   => "\\boldsymbol{f}",
+        "\\F"   => "\\boldsymbol{F}",
+        "\\R"   => "\\mathbb{R}",
+        "\\1"   => "\\mathbb{1}"
       )
     ))
   ),
@@ -63,7 +64,7 @@ makedocs(
         "pointpatterns/pointprocs.md",
         "pointpatterns/pointops.md"
       ],
-      "Plot recipes" => "plotting.md"
+      "Plotting" => "plotting.md"
     ],
     "Contributing" => [
       "contributing/guidelines.md",

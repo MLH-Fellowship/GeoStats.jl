@@ -1,8 +1,8 @@
 # Education
 
-Geostatistics is often misunderstood as "classical statistics applied to
-spatial data". To correct this unfortunate misunderstanding, the best we
-can do as a community is to list additional learning resources for newcomers.
+Geostatistics is often misunderstood as *"classical statistics applied to
+geospatial data"*. To correct this unfortunate misunderstanding, the best we
+can do as a community is to list educational resources.
 
 ## Learning resources
 
@@ -24,7 +24,7 @@ can do as a community is to list additional learning resources for newcomers.
 ### Lectures
 
 - [Júlio Hoffimann](https://www.youtube.com/playlist?list=PLsH4hc788Z1f1e61DN3EV9AhDlpbhhanw) -
-  Tutorials on geostatistics with the GeoStats.jl project.
+  Video lectures with the GeoStats.jl project.
 
 - [Edward Isaaks](https://www.youtube.com/user/sadeddy/videos) -
   Video lectures on variography, Kriging and related concepts.
@@ -32,7 +32,16 @@ can do as a community is to list additional learning resources for newcomers.
 - [Jef Caers](https://www.youtube.com/playlist?list=PLh35GyCXlQaQ1LNGWr4vCD9AGOGni8yxq) -
   Video lectures on two-point and multiple-point methods.
 
-## Related efforts
+### Workshops
+
+- [CBMina 2021](https://github.com/juliohm/CBMina2021)
+  [Portuguese] - GeoStats.jl at the Brazilian mining congress.
+
+- [UFMG 2021](https://github.com/fnaghetini/intro-to-geostats)
+  [Portuguese] - GeoStats.jl at the Federal University of
+  Minas Gerais.
+
+## Related concepts
 
 ### GaussianProcesses.jl
 
@@ -57,27 +66,25 @@ kernels according to the intrinsic stationary property. This means that
 there are variogram models with no covariance counterpart. Furthermore,
 empirical variograms can be easily estimated from the data (in various
 directions) with an efficient procedure. GeoStats.jl treats variograms
-as first-class objects, see the
-[Variogram modeling example](https://github.com/JuliaEarth/GeoStatsTutorials).
+as first-class objects.
 
 ### Interpolations.jl
 
 [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl) -
-Kriging and Spline interpolation have different purposes, yet these two
+Kriging and spline interpolation have different purposes, yet these two
 methods are sometimes listed as competing alternatives. Kriging estimation
-is about minimizing variance (or estimation error), whereas Spline
-interpolation is about forcedly smooth estimators derived for
-*computer visualization*.
-[Kriging is a generalization of Splines](https://www.sciencedirect.com/science/article/pii/009830048490030X)
+is about minimizing variance (or estimation error), whereas spline
+interpolation is about deriving smooth estimators for *computer visualization*.
+[Kriging is a generalization of splines](https://www.sciencedirect.com/science/article/pii/009830048490030X)
 in which one has the freedom to customize spatial structure based
 on data. Besides the estimate itself, Kriging also provides the
-variance map as a function of knots configuration.
+variance map as a function of point patterns.
 
 ### MLJ.jl
 
 [MLJ.jl](https://github.com/alan-turing-institute/MLJ.jl) -
-Statistical learning theory relies on a set of assumptions that do
-**not** hold with spatial data (e.g i.i.d. samples on fixed-size support,
-stationarity, to name a few). Geostatistical learning theory generalizes
-traditional machine learning for applications where statistical models
-need to be learned from spatial data.
+Traditional statistical learning relies on core assumptions that do
+**not** hold in geospatial settings (fixed support, i.i.d. samples, ...).
+[Geostatistical learning](https://www.frontiersin.org/articles/10.3389/fams.2021.689393/full)
+has been introduced recently as an attempt to push the frontiers of
+statistical learning with geospatial data.
